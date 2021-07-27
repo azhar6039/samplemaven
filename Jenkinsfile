@@ -1,5 +1,7 @@
 pipeline {
-    agent any 
+   agent {
+         label 'ubuntu'
+     }
     environment {
   
         registryCredential = 'dockerhub_id'
@@ -35,6 +37,18 @@ pipeline {
             }
         }
       }
+    }
+    stage ('K8S Deploy') {
+        steps {
+            script {
+                kubernetesDeploy(
+                    configs: 'k8s-deployment.yaml',
+                    kubeconfigId: 'K8S',
+                    enableConfigSubstitution: true
+                    )           
+               
+            }
+        }
     }
     }
 }
