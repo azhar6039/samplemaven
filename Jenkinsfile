@@ -13,6 +13,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/azhar6039/samplemaven.git']]])  
             }
         }
+    stage('Build') {
+		  steps {
+			  sh "echo Packaging Sample MiddleWare Application"
+			  sh "mvn clean package"
+		  }
+    }
   
     stage('Building image') {
       steps{
