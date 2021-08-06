@@ -1,7 +1,5 @@
 pipeline {
-   agent {
-         label 'ubuntu'
-     }
+   agent any
     environment {
   
         registryCredential = 'dockerhub_id'
