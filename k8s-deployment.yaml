@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: azhar6039/samplemaven
+        image: digitalrig.azurecr.io/digitalrig/maven-app:latest
         imagePullPolicy: Always
         
 # service type loadbalancer       
